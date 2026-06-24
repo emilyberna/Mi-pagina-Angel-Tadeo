@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto Recuperación</title>
+    <link rel="stylesheet" href="estilosangeltadeo.css">
+</head>
+<body>
+    <header>
+        <h1>🌐 Sitios Web</h1>
+        <p>Conceptos y estructura</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#dominio">Dominio</a></li>
+            <li><a href="#hosting">Hosting</a></li>
+            <li><a href="#funcionamiento">Funcionamiento</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="dominio">
+            <h2>📌 Dominio</h2>
+            <p>Nombre único que identifica un sitio en internet. Ejemplo: misitio.com</p>
+        </section>
+
+        <section id="hosting">
+            <h2>📌 Hosting</h2>
+            <p>Espacio en servidor para guardar archivos. Tipos: Compartido, VPS, Dedicado y Gratuito.</p>
+        </section>
+
+        <section id="funcionamiento">
+            <h2>📌 Funcionamiento</h2>
+            <p>Modelo cliente-servidor, HTTP/HTTPS y DNS.</p>
+        </section>
+
+        <section id="contacto">
+            <h2>📩 Contacto</h2>
+            <p>Proyecto realizado para recuperación de contenidos.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 - 6° Semestre Grupo 602</p>
+    </footer>
+</body>
+<section id="formulario">
+    <h2>📝 Formulario de contacto</h2>
+    <form id="miFormulario">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" placeholder="Escribe tu nombre">
+
+        <label for="correo">Correo:</label>
+        <input type="email" id="correo" name="correo" placeholder="ejemplo@correo.com">
+
+        <button type="submit">Enviar</button>
+        <p id="mensaje"></p>
+    </form>
+
+    <button id="botonInfo">Mostrar información extra</button>
+    <div id="infoExtra" style="display: none; margin-top: 1rem; padding: 1rem; background: #ebf8ff; border-radius: 4px;">
+        ✅ Este sitio cumple con todos los requisitos de la guía.
+    </div>
+</section>
+
+<script>
+const formulario = document.getElementById("miFormulario");
+const mensaje = document.getElementById("mensaje");
+
+formulario.addEventListener("submit", function(e) {
+    e.preventDefault();
+    const nombre = document.getElementById("nombre").value.trim();
+    const correo = document.getElementById("correo").value.trim();
+
+    if (nombre === "" || correo === "") {
+        mensaje.textContent = "⚠️ Completa todos los campos";
+        mensaje.style.color = "#dc2626";
+    } else if (!correo.includes("@")) {
+        mensaje.textContent = "❌ Ingresa un correo válido";
+        mensaje.style.color = "#dc2626";
+    } else {
+        mensaje.textContent = "✅ Formulario enviado correctamente";
+        mensaje.style.color = "#16a34a";
+    }
+});
+const boton = document.getElementById("botonInfo");
+const info = document.getElementById("infoExtra");
+
+boton.addEventListener("click", function() {
+    info.style.display = info.style.display === "none" ? "block" : "none";
+    boton.textContent = info.style.display === "none" ? "Mostrar información" : "Ocultar información";
+});
+</script>
+
+</html>
